@@ -4,9 +4,27 @@ This guide provide all information needed to deploy and configure an `Automation
 
 ### Step 1: Deployment of the Automation Vault
 
-**Deploy Automation Vault:**
+**Create a new Automation Vault:**
 
-- Use the `AutomationVaultFactory` contract to deploy a new instance of `AutomationVault`. Make sure to provide the owner parameter. The native token will be taken directly from the connected network.
+- On the main page there will be a button once we connect our wallet which will allow us to create a new Automation Vault.
+
+![CreateVault](../../images/automationVaultGuide/CreateVault.png)
+
+- Once we have clicked on it, we will see several fields.
+
+  The first one will be the address which will be the owner of the automation vault.
+
+  The last one is the chain in which we want to start using xkeeper.
+
+- By default it will take the owner, the connected address and the ethereum mainnet.
+
+![CreateVaultConfirm](../../images/automationVaultGuide/CreateVaultConfirm.png)
+
+- When the new automation vault is created, it will appear in the "my vaults" list. If we explore the vault we will get this:
+
+![MyVaults](../../images/automationVaultGuide/MyVaults.png)
+
+- We have several options related to the balance for payments, relays for executions and additional metadata information. All will be explored in separate sections.
 
 ### Step 2: Adding Balance to the Automation Vault
 
@@ -14,19 +32,27 @@ This guide provide all information needed to deploy and configure an `Automation
 
 - Transfer the necessary funds to the automation vault to cover the costs associated with task execution. This could include Native token as ETH in Ethereum network or ERC-20 tokens, depending on the protocol requirements.
 
+![Deposit](../../images/automationVaultGuide/Deposit.png)
+
 ### Step 3: Approval of Callers and Relays for a specific relay
 
 **Add relay:**
 
-- Use functions in the automation vault to approve specific relay. This might include relays such as `Keep3rRelay`, `Keep3rBondedRelay`, `GelatoRelay`, or `OpenRelay`, depending on the protocol's needs. The params needed to approve it will be:
+- Use functions in the automation vault to approve specific relay. This might include relays such as `Keep3rRelay`, `Keep3rBondedRelay`, `GelatoRelay`, or `OpenRelay`, depending on the protocol's needs. These configurations will be explained in more detail in their specific section.
 
-    a. The relay address
+### Step 4: Adding Metadata
 
-    b. The callers who will be authorized to call the selected relay.
+**Adding Metadata:**
 
-    c. The Job Data which contains the job and selectors. To enable task executions, you need to approve specific jobs that the automation vault will interact with and will be allowed. Additionally, you need to approve specific function selectors for each approved job. This ensures that only designated functions within the approved jobs can be executed.
+- Adding metadata will give additional information to the various bots that will want to run the jobs in your vault. Within this option we can add a name to the vault and the relevant information for the executions in this vault.
 
-### Step 4: Tracking and Monitoring
+![AddMetadata](../../images/automationVaultGuide/AddMetadata.png)
+
+After set the metadata, the website will display the proper information.
+
+![DisplayMetadata](../../images/automationVaultGuide/DisplayMetadata.png)
+
+### Step 5: Tracking and Monitoring
 
 **Tracking and Monitoring:**
 

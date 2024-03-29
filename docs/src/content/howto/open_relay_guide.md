@@ -1,21 +1,23 @@
 ## Tutorial: Automate with Open Relay
 
-This guide provides a step-by-step process to create and manage automated tasks using the `OpenRelay`.
+This guide provide all information needed to configure an `Open Relay` for your automation vault. You can do it easily using [xkeeper.network](https://xkeeper.network/).
 
 ### Step 1: Deployment of the Automation Vault
 
 **Automation Vault**
 
-- If you already have an automation vault, you can skip this step, if not, deploy and configure the automation vault. You can follow the guide in step by step (./step_by_step.md). Using this relay you need to configure the relay for any caller.
+- If you already have an automation vault, you can skip this step, if not, deploy and configure the automation vault. You can follow the [automation vault guide](./automation_vault_guide.md). In this case, when using the open relay it is important that our automation vault has balance. It will be necessary in the native token of the selected chain, since it is the payment method used by this relay.
 
-### Step 2: Provide additional information
+### Step 2: Configure Open Relay
 
-**Add Metadata**
+- First, in the drop down menu select the open relay. The address should appear automatically since these are the relays provided by xKeeper. Then we will have to approve the callers who will be able to execute the jobs. In this case, and being the open relay, you can select the option that allows anyone to run our jobs.
 
-- In order for the bots to be able to work your job it is recommended to provide additional information about the desired requirements. A recommended option is to add information through `XKeeperMetadata` which allows you to add additional instructions.
+![addOpenRelay](../../images/openRelayGuide/addOpenRelay.png)
 
-### Step 3: Tracking and Monitoring
+- After this, in the next tab we will display jobs. Here we will put the address of the desired job and it will automatically load the selectors to choose which function we want to be worked.
 
-**Tracking and Monitoring:**
+![selectorsOpenRelay](../../images/openRelayGuide/selectorsOpenRelay.png)
 
-- Once the task is created, you will have information about the executions and logs in [xkeeper.network](https://xkeeper.network/).
+- Finally, after having added the caller and the desired jobs we will get something like this in our automation vault.
+
+![configuredOpenRelay](../../images/openRelayGuide/configuredOpenRelay.png)
