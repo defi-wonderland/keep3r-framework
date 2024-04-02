@@ -2,29 +2,24 @@
 
 > 🚧 Prerequisite: Please ensure you have completed the [Automation Vault setup](./automation_vault.md) before proceeding.
 
-The GelatoRelay combines the power of xKeeper with the Gelato Network ecosystem. The key advantage of Gelato Relay is its ability to centralize payment for executing all Gelato tasks within the Automation Vault, streamlining the process for users. This relay handles the costs associated with the execution of automated transactions, ensuring that the executors, or "Gelato Executors", are adequately compensated for their work.
+The Gelato Relay enables you to connect Gelato Network to the array of automation networks in xKeeper.
 
-Gelato Network offers differentiated incentives depending on the blockchain being used, with details and specific rates available at this [link](https://docs.gelato.network/web3-services/vrf/pricing-and-rate-limits#transaction-charges).
+Gelato offers differentiated incentives depending on the chain being used.For comprehensive details, refer to their [documentation](https://docs.gelato.network/web3-services/vrf/pricing-and-rate-limits#transaction-charges).
 
-## Step 1: Enable the relay in your vault
 
-Once inside your vault, click on "Add New Relay", and then select the Gelato Relay as your relay.
+## Step 1: Add the relay in your vault
 
-Then, within the Callers section of the modal, we will need to approve the dedicated Msg Sender from Gelato. To do this, we will have to go to the [Gelato App settings](https://app.gelato.network/settings) to obtain ours.
+Inside your vault, find and click "Add New Relay," then choose Gelato Relay from the list.
 
-<video controls width="1280">
-  <source src="../../media/how-to/gelato_relay/msg.sender.mp4" type="video/mp4">
-  <source src="../../media/how-to/gelato_relay/msg.sender.webm" type="video/webm">
-  Your browser does not support the video tag.
-</video>
+In the Callers section of the window that appears, you will need to approve the dedicated msg.sender from Gelato. You can find your dedicated msg.sender inside [Gelato settings](https://app.gelato.network/settings).
 
-Finally, inside the Jobs section, go ahead and add the details of your job. For this example, feel free to use a sample one we have deployed to all testnets.
+Next, in the Jobs section, input the details of your job. For this guide, we will use a sample job we've made available on all testnets:
 
 > Job Address: `0x129f5C4Adf38a1860e54DE46970653465A605364`
 >
 > Work function: `work (0x322e9f04)`
 
-Done! Now go ahead and confirm in order to submit the transaction.
+Now proceed by confirming in order to submit the transaction.
 
 <video controls width="1280">
   <source src="../../media/how-to/gelato_relay/setup.mp4" type="video/mp4">
@@ -32,45 +27,38 @@ Done! Now go ahead and confirm in order to submit the transaction.
   Your browser does not support the video tag.
 </video>
 
-## Step 2: Create the task in Gelato App
 
-1. Open your web browser and navigate to [Gelato Network's App](https://app.gelato.network/settings).
-   Connect your Web3 wallet by clicking on the "Connect Wallet" button located at the top right corner of the page.
+## Step 2: Create the task inside Gelato
 
-2. Once connected, find and click on the "Create Task" button or link, often found in the dashboard or the side menu.
+Open your web browser and navigate to [Gelato](https://app.gelato.network/functions?type=tasks). Connect your wallet and click on "Create task".
 
-3. In the Gelato App's "Create Task" interface, you have several options for setting the trigger conditions for your task. Here’s a brief overview of each:
+For the purposes of this guide, we'll apply the following settings:
 
-- Time Interval: This trigger allows you to set the task to execute at regular intervals, specified in days, hours, minutes, and seconds.
+* Time Interval: 5 minutes
+* Start Immediately: true
+* Trigger: Solidity function
 
-- Cron Expressions: This is a more advanced scheduling option that enables you to define complex time patterns such as "every Monday at 3 PM" or "every 5 minutes during business hours on weekdays".
+In the trigger settings:
 
-- On-chain Event: Choose this trigger to initiate the task based on specific events on the blockchain. For instance, you could trigger a task when a transaction is confirmed or when a certain state change occurs in a contract.
+* Solidity Function
+  * Network: Testnet of your choosing.
+  * Contract Address: Smart contract with integrated [checker](https://docs.gelato.network/web3-services/web3-functions/quick-start/writing-solidity-functions#id-1.-understand-the-role-of-a-checker). We will use a simple one deployed by us for this guide: `0x6F3f27a48Da92100Bc1b34c1FAA5e268f4bDdFDe`. 
+* Target Smart Contract
+  * Contract Address: Address of your job. For this guide, we will use a sample job we've made available on all testnets: `0x129f5C4Adf38a1860e54DE46970653465A605364`.
 
-- Every Block: This option will execute the task every time a new block is mined on the blockchain.
+Lastly, in the "Task Properties" section under "Advanced Settings" toggle on "Transaction pays itself" to ensure the transaction costs are covered onchain through your Automation Vault.
 
-4. In the next step of setting up your task, you'll be presented with options for what action should be triggered.
-
-5. To create your task within the Gelato App, you’ll need to fill in the following fields:
-
-- **Network:** Here you select the blockchain network where your task will operate.
-
-- **Solidity function contract address:** This field refers to the contract that contains the checker function. The checker function is what Gelato calls to determine whether your task should execute.
-
-- **Target smart contract:** Input the address of your Gelato Relay as the destination since it's tasked with executing the actions.
-
-6. Lastly, in the "Task Properties" section under "Advanced Settings," toggle on "Transaction pays itself" to ensure the transaction costs are covered and the executor is compensated for executing the task.
-
-In our walkthrough, we've set up a task to trigger every **5 minutes** using the **Solidity Function** as our action point. This configuration is demonstrated in the accompanying example video:
+You can learn more about each setting by visiting [Gelato documentation](https://docs.gelato.network/web3-services/web3-functions).
 
 <video controls width="1280">
-  <source src="../../media/how-to/gelato_task/task.mp4" type="video/mp4">
-  <source src="../../media/how-to/gelato_task/task.webm" type="video/webm">
+  <source src="../../media/how-to/gelato_relay/task.mp4" type="video/mp4">
+  <source src="../../media/how-to/gelato_relay/task.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
 
-## Verify execution
 
-With all the steps completed, we now have everything necessary to harness the automation capabilities of Gelato Network and xKeeper. This seamless integration allows us to set up tasks that are automatically executed, with payments and incentives managed through the Automation Vault, ensuring a streamlined process for users and fair compensation for executors.
+## Step 3: Verify execution
 
-To verify the executions of your tasks, you can conveniently check the dashboard of xKeeper as well as the Gelato App.
+After the first work transaction is included onchain, you will be able to find its details under the Activity tab if your vault.
+
+![Vault transaction history](../../media/how-to/gelato_relay/history.png)
