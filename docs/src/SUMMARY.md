@@ -6,12 +6,12 @@
 
   - [xKeeper](content/intro/xkeeper.md)
 
-- [How to use](content/howto/step_by_step.md)
+- [How to use](content/how-to/index.md)
 
-  - [AutomationVault Guide](content/howto/automation_vault_guide.md)
-  - [Gelato Guide](content/howto/gelato_guide.md)
-  - [Keep3r Guide](content/howto/keep3r_guide.md)
-  - [Open Relay Guide](content/howto/open_relay_guide.md)
+  - [Create a vault](content/how-to/automation_vault.md)
+  - [Enable Gelato Relay](content/how-to/gelato_relay.md)
+  - [Enable Keep3r Relay](content/how-to/keep3r_relay.md)
+  - [Enable Open Relay](content/how-to/open_relay.md)
 
 - [Core Contracts](content/core/index.md)
 
