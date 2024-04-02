@@ -12,6 +12,12 @@ Once inside your vault, click on "Add New Relay", and then select the Gelato Rel
 
 Then, within the Callers section of the modal, we will need to approve the dedicated Msg Sender from Gelato. To do this, we will have to go to the [Gelato App settings](https://app.gelato.network/settings) to obtain ours.
 
+<video controls width="1280">
+  <source src="../../media/how-to/gelato_relay/msg.sender.mp4" type="video/mp4">
+  <source src="../../media/how-to/gelato_relay/msg.sender.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
 Finally, inside the Jobs section, go ahead and add the details of your job. For this example, feel free to use a sample one we have deployed to all testnets.
 
 > Job Address: `0x129f5C4Adf38a1860e54DE46970653465A605364`
@@ -58,8 +64,8 @@ Done! Now go ahead and confirm in order to submit the transaction.
 In our walkthrough, we've set up a task to trigger every **5 minutes** using the **Solidity Function** as our action point. This configuration is demonstrated in the accompanying example video:
 
 <video controls width="1280">
-  <source src="../../media/how-to/gelato_task/setup.mp4" type="video/mp4">
-  <source src="../../media/how-to/gelato_task/setup.webm" type="video/webm">
+  <source src="../../media/how-to/gelato_task/task.mp4" type="video/mp4">
+  <source src="../../media/how-to/gelato_task/task.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
 

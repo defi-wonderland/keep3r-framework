@@ -36,34 +36,13 @@ Done! Now go ahead and confirm in order to submit the transaction.
 
 ## Step 2: Setup Keep3r requirements
 
-1. Open your web browser and navigate to [Gelato Network's App](https://app.gelato.network/settings).
-   Connect your Web3 wallet by clicking on the "Connect Wallet" button located at the top right corner of the page.
+To fully integrate your job with the Keep3r Network, you must complete a series of steps:
 
-2. Once connected, find and click on the "Create Task" button or link, often found in the dashboard or the side menu.
+1. Register Your Job: Navigate to the [Keep3r Network dashboard](https://keep3r.network/) and click on register job. The address that should be used has to be your deployed automation vault.
 
-3. In the Gelato App's "Create Task" interface, you have several options for setting the trigger conditions for your task. Here’s a brief overview of each:
+2. Click on your register jon and mint Klp tokens directly through the Keep3r Network. Ensure you have enough tokens to cover the expected work.
 
-- Time Interval: This trigger allows you to set the task to execute at regular intervals, specified in days, hours, minutes, and seconds.
-
-- Cron Expressions: This is a more advanced scheduling option that enables you to define complex time patterns such as "every Monday at 3 PM" or "every 5 minutes during business hours on weekdays".
-
-- On-chain Event: Choose this trigger to initiate the task based on specific events on the blockchain. For instance, you could trigger a task when a transaction is confirmed or when a certain state change occurs in a contract.
-
-- Every Block: This option will execute the task every time a new block is mined on the blockchain.
-
-4. In the next step of setting up your task, you'll be presented with options for what action should be triggered.
-
-5. To create your task within the Gelato App, you’ll need to fill in the following fields:
-
-- **Network:** Here you select the blockchain network where your task will operate.
-
-- **Solidity function contract address:** This field refers to the contract that contains the checker function. The checker function is what Gelato calls to determine whether your task should execute.
-
-- **Target smart contract:** Input the address of your Gelato Relay as the destination since it's tasked with executing the actions.
-
-6. Lastly, in the "Task Properties" section under "Advanced Settings," toggle on "Transaction pays itself" to ensure the transaction costs are covered and the executor is compensated for executing the task.
-
-In our walkthrough, we've set up a task to trigger every **5 minutes** using the **Solidity Function** as our action point. This configuration is demonstrated in the accompanying example video:
+3. Add Liquidity: Once you have the Klp, you will have to add liquidity to the job, in this case the automation vault. With this the different keepers will be able to get paid.
 
 <video controls width="1280">
   <source src="../../media/how-to/gelato_task/setup.mp4" type="video/mp4">
@@ -71,8 +50,8 @@ In our walkthrough, we've set up a task to trigger every **5 minutes** using the
   Your browser does not support the video tag.
 </video>
 
+We already have everything we need to be able to work in xKeeper with Keep3r network. With all this configuration the Keepers will be able to work through the keep3r relay and will receive the payment of the previously added liquidity.
+
 ## Verify execution
 
-With all the steps completed, we now have everything necessary to harness the automation capabilities of Gelato Network and xKeeper. This seamless integration allows us to set up tasks that are automatically executed, with payments and incentives managed through the Automation Vault, ensuring a streamlined process for users and fair compensation for executors.
-
-To verify the executions of your tasks, you can conveniently check the dashboard of xKeeper as well as the Gelato App.
+Within the activity tab in our xKeeper automation vault, we will have all the necessary data of the executions made by the different keepers through Keep3r Network.
