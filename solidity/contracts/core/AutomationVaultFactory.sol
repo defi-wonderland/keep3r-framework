@@ -3,7 +3,7 @@ pragma solidity 0.8.19;
 
 import {IAutomationVaultFactory} from '../../interfaces/core/IAutomationVaultFactory.sol';
 import {AutomationVault, IAutomationVault} from '../core/AutomationVault.sol';
-import {EnumerableSet} from '../../../node_modules/@openzeppelin/contracts//utils/structs/EnumerableSet.sol';
+import {EnumerableSet} from 'openzeppelin/utils/structs/EnumerableSet.sol';
 
 /**
  * @title  AutomationVaultFactory

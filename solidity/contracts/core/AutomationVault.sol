@@ -2,8 +2,8 @@
 pragma solidity 0.8.19;
 
 import {IAutomationVault} from '../../interfaces/core/IAutomationVault.sol';
-import {IERC20, SafeERC20} from '../../../node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol';
-import {EnumerableSet} from '../../../node_modules/@openzeppelin/contracts/utils/structs/EnumerableSet.sol';
+import {IERC20, SafeERC20} from 'openzeppelin/token/ERC20/utils/SafeERC20.sol';
+import {EnumerableSet} from 'openzeppelin/utils/structs/EnumerableSet.sol';
 import {_ALL} from '../../utils/Constants.sol';
 
 /**
