@@ -1,23 +1,81 @@
-## Tutorial: Automate with Open Relay
+# Enable the OpenRelay on your Vault
 
-This guide provide all information needed to configure an `Open Relay` for your automation vault. You can do it easily using [xkeeper.network](https://xkeeper.network/).
+> 🚧 Prerequisite: Please ensure you have completed the [Automation Vault setup](./automation_vault.md) before proceeding.
 
-### Step 1: Deployment of the Automation Vault
+The OpenRelay is a fundamental yet potent relay system. It precisely calculates the gas used for executing your job within its smart contract, reimbursing the executor in ETH for the gas costs, plus an additional incentive.
 
-**Automation Vault**
+**Current incentive:** **120%** of the gas costs, paid out in ETH instantaneously.
 
-- If you already have an automation vault, you can skip this step, if not, deploy and configure the automation vault. You can follow the [automation vault guide](./automation_vault_guide.md). In this case, when using the open relay it is important that our automation vault has balance. It will be necessary in the native token of the selected chain, since it is the payment method used by this relay.
+## Step 1: Enable the relay in your vault
 
-### Step 2: Configure Open Relay
+Inside your vault, find and click "Add New Relay," then choose Open Relay from the list.
 
-- First, in the drop down menu select the open relay. The address should appear automatically since these are the relays provided by xKeeper. Then we will have to approve the callers who will be able to execute the jobs. In this case, and being the open relay, you can select the option that allows anyone to run our jobs.
+In the Callers section of the window that appears, activate the "Allow any caller" option to permit any address to execute your job.
+ 
+Next, in the Jobs section, input the details of your job. For this guide, we will use a sample job we've made available on all testnets:
 
-![addOpenRelay](../../images/openRelayGuide/addOpenRelay.png)
+> Job Address: `0x129f5C4Adf38a1860e54DE46970653465A605364`
+> 
+> Work function: `work (0x322e9f04)`
 
-- After this, in the next tab we will display jobs. Here we will put the address of the desired job and it will automatically load the selectors to choose which function we want to be worked.
+Now proceed by confirming in order to submit the transaction.
 
-![selectorsOpenRelay](../../images/openRelayGuide/selectorsOpenRelay.png)
+<video controls width="1280">
+  <source src="../../media/how-to/open_relay/setup.mp4" type="video/mp4">
+  <source src="../../media/how-to/open_relay/setup.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
 
-- Finally, after having added the caller and the desired jobs we will get something like this in our automation vault.
+## Step 2: Generate exec parameters
 
-![configuredOpenRelay](../../images/openRelayGuide/configuredOpenRelay.png)
+Execution of jobs through Relays requires specific data for the exec function on the Open Relay.
+
+Jobs should always be executed through Relays. In this case, we need to generate the data needed to call the `exec` function on the Open Relay.
+
+Let's gather the needed information:
+
+#### `_automationVault`
+Your vault's address.
+
+#### `_execData`
+This encapsulates the encoded function signature of your job and its parameters. A typical `_execData` example is as follows:
+```json
+[{"job":"<JOB_ADDRESS>","jobData":"<JOB_DATA>"}]
+```
+
+Continue using the testnet sample job address: `0x129f5C4Adf38a1860e54DE46970653465A605364`.
+
+To generate the job data, we used [chisel](https://book.getfoundry.sh/chisel/):
+
+```bash
+> chisel
+> bytes32(abi.encodeWithSignature("work()"))
+
+Type: bytes32
+└ Data: 0x322e9f0400000000000000000000000000000000000000000000000000000000
+```
+
+For alternative methods to generate `_execData`, refer to [Relay exec data](../intro/index.md).
+
+#### `_feeRecipient`
+The ETH fee recipient, typically the wallet executing the job.
+
+
+## Step 3: Work your job for the first time
+
+While this process is usually automated, we'll manually execute the job through Etherscan for demonstration purposes.
+
+Visit the Etherscan page for your chosen testnet and locate the OpenRelay address listed on your vault's homepage.
+
+Then, under the Write Contracts tab, input the parameters prepared in Step 2 and confirm the transaction.
+
+<video controls width="1280">
+  <source src="../../media/how-to/open_relay/work.mp4" type="video/mp4">
+  <source src="../../media/how-to/open_relay/work.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+
+## Step 4: Verify execution
+
+...
