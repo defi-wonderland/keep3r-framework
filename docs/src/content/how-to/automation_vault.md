@@ -1,12 +1,19 @@
 # Create your first Automation Vault
 
-An automation vault is the home to your onchain automation. You can deposit ETH or any ERC20 into it, and use it for automation payments.
+An Automation Vault serves as the home for your on-chain automations. 
 
-Inside your vault, you can also enable multiple automation networks (i.e. Gelato), and define which jobs can they work.
+Within your vault, you can activate various automation networks (for example, Gelato) and select specific tasks they are authorized to perform.
+
+In order to pay for your onchain automation, you can deposit ETH or any ERC20 into your vault.
+
+Let's go ahead and try all this out.
+
 
 ## Step 1: Deploy your vault
 
-Go to [xkeeper.network](https://xkeeper.network/) in your browser, connect to your favorite chain, and click on "Create Vault".
+First, navigate to [xkeeper.network](https://xkeeper.network/) in your browser. Once there, connect your wallet and select the testnet of your choosing.
+
+Next, click the "Create Vault" button and follow the shown steps.
 
 <video controls width="1280">
   <source src="../../media/how-to/automation_vault/vault-creation.mp4" type="video/mp4">
@@ -19,16 +26,16 @@ Well done! You now have created your first Automation Vault 🥳.
 
 ### Step 2: Add metadata
 
-Adding a name and description to your vault will make it easier for bots to identify your job. Make sure to include everything needed for the execution of your job in the description.
+Adding a name and description to your vault will make it easier for bots to identify and execute your jobs. Ensure that your description is comprehensive, detailing all the necessary information for task execution.
 
-The better your description, the more amount of bots will be able to run it. A good job metadata could be:
+A compelling metadata entry looks something like this:
 
 > **Name:** My Protocol
 > 
 > **Description:** Automation of My Protocol reward and distribute jobs. Automation scripts can be found here: [https://github.com/my-protocol/automation-scripts](https://github.com/my-protocol/automation-scripts).
 
 <div class="warning">
-xKeeper is a fully onchain protocol. Metadata is stored onchain, thus it requires a transaction.
+Please note, xKeeper operates entirely on-chain. Therefore, storing metadata requires an onchain transaction.
 </div>
 
 <video controls width="1280">
@@ -37,14 +44,14 @@ xKeeper is a fully onchain protocol. Metadata is stored onchain, thus it require
   Your browser does not support the video tag.
 </video>
 
-Go ahead, try it out and add some metadata to your newly created vault.
+Now, give it a try and add some metadata to your new vault.
 
 
 ### Step 3: Add balance
 
-Transfer the necessary funds to your vault to cover the costs associated with task execution.
+To prepare your vault for task execution, deposit the necessary funds to cover associated costs.
 
-For this example, let's go and add some ETH to it. Using your favorite wallet, transfer ETH to your newly created automation vault address.
+As an example, let's add some ETH to it. Using your preferred wallet, send ETH to the address of your new Automation Vault.
 
 <video controls width="1280">
   <source src="../../media/how-to/automation_vault/deposit-eth.mp4" type="video/mp4">
@@ -55,13 +62,13 @@ For this example, let's go and add some ETH to it. Using your favorite wallet, t
 
 ### Step 4: Setup your relays and jobs
 
-Relays are the connection between xKeeper and different automation networks. For example, inside your vault, you can enable the **GelatoRelay** to use Gelato's automation network, or **Keep3rRelay** to use Keep3r's.
+Relays act as bridges between your vault and various automation networks. For instance, you can enable the **Keep3rRelay** for Keep3r's network or the **GelatoRelay** for Gelato's services within your vault.
 
-There is one exception to the rule, the **OpenRelay**, which is not connected to any automation network. This relay will let **any bot** execute your onchain jobs, and get directly rewarded with ETH for it, attracting MEV Searchers and maximising your further contributing to your job's decentralization.
+The **OpenRelay** is a unique exception; it doesn't connect to a specific automation network. Instead, it allows any bot to execute your on-chain tasks, compensating them directly with ETH. This approach is particularly attractive to MEV Searchers and contributes significantly to the decentralization of your tasks.
 
-When you enable a relay, you will also specify which jobs you allow it to execute.
+Upon enabling a relay, you also define which tasks it can carry out.
 
-As the final step, go ahead and enable one of the following relays to your vault:
+To complete the setup, enable one or more of the following relays in your vault:
 * [Open Relay](./open_relay.md)
 * [Gelato Relay](./gelato_relay.md)
 * [Keep3r Relay](./keep3r_relay.md)
