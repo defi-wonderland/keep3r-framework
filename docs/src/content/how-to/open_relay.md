@@ -78,4 +78,6 @@ Then, under the Write Contracts tab, input the parameters prepared in Step 2 and
 
 ## Step 4: Verify execution
 
-...
+After your work transaction is included onchain, you will be able to find its details under the Activity tab if your vault.
+
+![Vault transaction history](../../media/how-to/open_relay/history.png)
