@@ -20,16 +20,16 @@ To generate your job data, execute the following commands in your terminal:
 
 ```bash
 > chisel
-> abi.encodeWithSignature("work(uint256 _someData)", 420)
+> abi.encodeWithSignature("work(uint256)", 420)
 
 Type: dynamic bytes
 ├ Hex (Memory):
 ├─ Length ([0x00:0x20]): 0x0000000000000000000000000000000000000000000000000000000000000024
-├─ Contents ([0x20:..]): 0xc7c0435800000000000000000000000000000000000000000000000000000000000001a400000000000000000000000000000000000000000000000000000000
+├─ Contents ([0x20:..]): 0x5858d16100000000000000000000000000000000000000000000000000000000000001a400000000000000000000000000000000000000000000000000000000
 ├ Hex (Tuple Encoded):
 ├─ Pointer ([0x00:0x20]): 0x0000000000000000000000000000000000000000000000000000000000000020
 ├─ Length ([0x20:0x40]): 0x0000000000000000000000000000000000000000000000000000000000000024
-└─ Contents ([0x40:..]): 0xc7c0435800000000000000000000000000000000000000000000000000000000000001a400000000000000000000000000000000000000000000000000000000 <-- YOUR NEEDED DATA
+└─ Contents ([0x40:..]): 0x5858d16100000000000000000000000000000000000000000000000000000000000001a400000000000000000000000000000000000000000000000000000000 <-- YOUR NEEDED DATA
 ```
 
 Grab the Contents field of the result, and use that as your `<JOB_DATA>`.
@@ -41,7 +41,9 @@ For those who use JavaScript, ethers.js provides a straightforward method to obt
 ```js
 abi = ["function work(uint256 _someData)"];
 iface = new ethers.utils.Interface(abi);
-encodedData = iface.encodeFunctionData("work(uint256 _someData)", [420]);
+encodedData = iface.encodeFunctionData("work", [420]);
+
+> "0x5858d16100000000000000000000000000000000000000000000000000000000000001a4"
 ```
 
 Try copy pasting the previous lines of code in the [Ethers Playground](https://playground.ethers.org/) to see the expected output.
