@@ -1,14 +1,15 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 pragma solidity 0.8.19;
 
-import {IAutomationVaultFactory} from '../../interfaces/core/IAutomationVaultFactory.sol';
-import {AutomationVault, IAutomationVault} from '../core/AutomationVault.sol';
 import {EnumerableSet} from 'openzeppelin/utils/structs/EnumerableSet.sol';
 
+import {IAutomationVaultFactory} from '../../interfaces/core/IAutomationVaultFactory.sol';
+import {AutomationVault, IAutomationVault} from '../core/AutomationVault.sol';
 /**
  * @title  AutomationVaultFactory
  * @notice This contract deploys the new automation vaults
  */
+
 contract AutomationVaultFactory is IAutomationVaultFactory {
   using EnumerableSet for EnumerableSet.AddressSet;
 

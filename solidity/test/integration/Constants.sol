@@ -1,11 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.19;
 
+import {IERC20} from 'openzeppelin/token/ERC20/utils/SafeERC20.sol';
+
 import {IOpsProxyFactory} from '../../interfaces/external/IOpsProxyFactory.sol';
 import {IKeep3rV2} from '../../interfaces/external/IKeep3rV2.sol';
 import {IKeep3rV1} from '../../interfaces/external/IKeep3rV1.sol';
 import {IKeep3rHelper} from '../../interfaces/external/IKeep3rHelper.sol';
-import {IERC20} from 'openzeppelin/token/ERC20/utils/SafeERC20.sol';
 import {IAutomate} from '../../interfaces/external/IAutomate.sol';
 
 address constant _KEEP3R_GOVERNOR = 0x0D5Dc686d0a2ABBfDaFDFb4D0533E886517d4E83;
