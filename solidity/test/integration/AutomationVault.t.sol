@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.19;
 
-import {CommonIntegrationTest} from '@test/integration/Common.t.sol';
+import {CommonIntegrationTest} from '../integration/Common.t.sol';
 
-import {IAutomationVault} from '@interfaces/core/IAutomationVault.sol';
-import {IERC20, SafeERC20} from '@openzeppelin/token/ERC20/utils/SafeERC20.sol';
+import {IAutomationVault} from '../../interfaces/core/IAutomationVault.sol';
+import {IERC20, SafeERC20} from '../../../node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol';
 import {_DAI_WHALE, _DAI} from './Constants.sol';
 
 contract IntegrationAutomationVault is CommonIntegrationTest {

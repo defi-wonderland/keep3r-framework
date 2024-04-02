@@ -3,16 +3,16 @@ pragma solidity 0.8.19;
 
 import {Script} from 'forge-std/Script.sol';
 
-import {AutomationVaultFactory, IAutomationVaultFactory} from '@contracts/core/AutomationVaultFactory.sol';
-import {IAutomationVault} from '@contracts/core/AutomationVault.sol';
-import {OpenRelay, IOpenRelay} from '@contracts/relays/OpenRelay.sol';
-import {GelatoRelay, IGelatoRelay} from '@contracts/relays/GelatoRelay.sol';
-import {Keep3rRelay, IKeep3rRelay} from '@contracts/relays/Keep3rRelay.sol';
-import {Keep3rBondedRelay, IKeep3rBondedRelay} from '@contracts/relays/Keep3rBondedRelay.sol';
-import {XKeeperMetadata, IXKeeperMetadata} from '@contracts/periphery/XKeeperMetadata.sol';
-import {_NATIVE_TOKEN} from '@utils/Constants.sol';
-import {IAutomate} from '@interfaces/external/IAutomate.sol';
-import {IKeep3rV2} from '@interfaces/external/IKeep3rV2.sol';
+import {AutomationVaultFactory, IAutomationVaultFactory} from '../contracts/core/AutomationVaultFactory.sol';
+import {IAutomationVault} from '../contracts/core/AutomationVault.sol';
+import {OpenRelay, IOpenRelay} from '../contracts/relays/OpenRelay.sol';
+import {GelatoRelay, IGelatoRelay} from '../contracts/relays/GelatoRelay.sol';
+import {Keep3rRelay, IKeep3rRelay} from '../contracts/relays/Keep3rRelay.sol';
+import {Keep3rBondedRelay, IKeep3rBondedRelay} from '../contracts/relays/Keep3rBondedRelay.sol';
+import {XKeeperMetadata, IXKeeperMetadata} from '../contracts/periphery/XKeeperMetadata.sol';
+import {_NATIVE_TOKEN} from '../utils/Constants.sol';
+import {IAutomate} from '../interfaces/external/IAutomate.sol';
+import {IKeep3rV2} from '../interfaces/external/IKeep3rV2.sol';
 
 abstract contract Deploy is Script {
   // When new contracts need to be deployed, make sure to update the salt version to avoid address collition

@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 pragma solidity 0.8.19;
 
-import {IOpenRelay} from '@interfaces/relays/IOpenRelay.sol';
-import {IAutomationVault} from '@interfaces/core/IAutomationVault.sol';
-import {_NATIVE_TOKEN} from '@utils/Constants.sol';
+import {IOpenRelay} from '../../interfaces/relays/IOpenRelay.sol';
+import {IAutomationVault} from '../../interfaces/core/IAutomationVault.sol';
+import {_NATIVE_TOKEN} from '../../utils/Constants.sol';
 
 /**
  * @title  OpenRelay

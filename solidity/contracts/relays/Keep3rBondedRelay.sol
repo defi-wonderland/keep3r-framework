@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 pragma solidity 0.8.19;
 
-import {IKeep3rBondedRelay, IAutomationVault, IKeep3rRelay} from '@interfaces/relays/IKeep3rBondedRelay.sol';
-import {IKeep3rV2} from '@interfaces/relays/IKeep3rRelay.sol';
+import {IKeep3rBondedRelay, IAutomationVault, IKeep3rRelay} from '../../interfaces/relays/IKeep3rBondedRelay.sol';
+import {IKeep3rV2} from '../../interfaces/relays/IKeep3rRelay.sol';
 
 /**
  * @title  Keep3rBondedRelay

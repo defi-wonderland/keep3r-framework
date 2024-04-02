@@ -9,7 +9,7 @@ import {
   IKeep3rBondedRelay,
   IAutomationVault,
   IKeep3rV2
-} from '@contracts/relays/Keep3rBondedRelay.sol';
+} from '../../contracts/relays/Keep3rBondedRelay.sol';
 
 contract Keep3rBondedRelayForTest is Keep3rBondedRelay {
   constructor(IKeep3rV2 _keep3rV2) Keep3rBondedRelay(_keep3rV2) {}

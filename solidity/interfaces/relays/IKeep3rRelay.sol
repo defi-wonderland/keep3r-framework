@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 pragma solidity 0.8.19;
 
-import {IAutomationVault} from '@interfaces/core/IAutomationVault.sol';
-import {IKeep3rV2} from '@interfaces/external/IKeep3rV2.sol';
+import {IAutomationVault} from '../../interfaces/core/IAutomationVault.sol';
+import {IKeep3rV2} from '../../interfaces/external/IKeep3rV2.sol';
 
 interface IKeep3rRelay {
   /*///////////////////////////////////////////////////////////////

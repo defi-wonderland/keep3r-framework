@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.19;
 
-import {ITaskTreasuryUpgradable} from '@interfaces/external/ITaskTreasuryUpgradable.sol';
+import {ITaskTreasuryUpgradable} from '../../interfaces/external/ITaskTreasuryUpgradable.sol';
 
 // solhint-disable max-line-length
 library LibDataTypes {

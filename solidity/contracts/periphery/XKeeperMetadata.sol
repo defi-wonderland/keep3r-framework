@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 pragma solidity 0.8.19;
 
-import {IXKeeperMetadata} from '@interfaces/periphery/IXKeeperMetadata.sol';
-import {IAutomationVault} from '@interfaces/core/IAutomationVault.sol';
-import {EnumerableSet} from '@openzeppelin/utils/structs/EnumerableSet.sol';
+import {IXKeeperMetadata} from '../../interfaces/periphery/IXKeeperMetadata.sol';
+import {IAutomationVault} from '../../interfaces/core/IAutomationVault.sol';
+import {EnumerableSet} from '../../../node_modules/@openzeppelin/contracts/utils/structs/EnumerableSet.sol';
 
 /**
  * @title  XKeeperMetadata

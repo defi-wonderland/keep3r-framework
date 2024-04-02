@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.19;
 
-import {CommonIntegrationTest} from '@test/integration/Common.t.sol';
+import {CommonIntegrationTest} from '../integration/Common.t.sol';
 
-import {IAutomationVault} from '@interfaces/core/IAutomationVault.sol';
-import {IAutomate, LibDataTypes} from '@interfaces/external/IAutomate.sol';
-import {IGelato} from '@interfaces/external/IGelato.sol';
-import {IOpsProxyFactory} from '@interfaces/external/IOpsProxyFactory.sol';
+import {IAutomationVault} from '../../interfaces/core/IAutomationVault.sol';
+import {IAutomate, LibDataTypes} from '../../interfaces/external/IAutomate.sol';
+import {IGelato} from '../../interfaces/external/IGelato.sol';
+import {IOpsProxyFactory} from '../../interfaces/external/IOpsProxyFactory.sol';
 import {_NATIVE_TOKEN, _OPS_PROXY_FACTORY} from './Constants.sol';
 
 contract IntegrationGelatoRelay is CommonIntegrationTest {

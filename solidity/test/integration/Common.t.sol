@@ -3,10 +3,10 @@ pragma solidity 0.8.19;
 
 import {Test} from 'forge-std/Test.sol';
 
-import {BasicJob} from '@contracts/for-test/BasicJob.sol';
-import {Deploy} from '@script/Deploy.s.sol';
-import {IAutomate} from '@interfaces/external/IAutomate.sol';
-import {IKeep3rV2} from '@interfaces/external/IKeep3rV2.sol';
+import {BasicJob} from '../../contracts/for-test/BasicJob.sol';
+import {Deploy} from '../../script/Deploy.s.sol';
+import {IAutomate} from '../../interfaces/external/IAutomate.sol';
+import {IKeep3rV2} from '../../interfaces/external/IKeep3rV2.sol';
 import {_KEEP3R_V2, _AUTOMATE} from './Constants.sol';
 
 contract DeployForTest is Deploy {
