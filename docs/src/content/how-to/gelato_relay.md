@@ -1,39 +1,70 @@
-## Tutorial: Automate with Open Relay
+# Enable the GelatoRelay on your Vault
 
-This guide provide all information needed to configure an `Gelato Relay` for your automation vault. You can do it easily using [xkeeper.network](https://xkeeper.network/).
+> 🚧 <Insert a text saying that completing the [Automation Vault setup](./automation_vault.md) is a requirement>
 
-### Step 1: Deployment of the Automation Vault
+The GelatoRelay combines the power of xKeeper with the Gelato Network ecosystem. The key advantage of Gelato Relay is its ability to centralize payment for executing all Gelato tasks within the Automation Vault, streamlining the process for users. This relay handles the costs associated with the execution of automated transactions, ensuring that the executors, or "Gelato Executors", are adequately compensated for their work.
 
-**Automation Vault**
+Gelato Network offers differentiated incentives depending on the blockchain being used, with details and specific rates available at this [link](https://docs.gelato.network/web3-services/vrf/pricing-and-rate-limits#transaction-charges).
 
-- If you already have an automation vault, you can skip this step, if not, deploy and configure the automation vault. You can follow the [automation vault guide](./automation_vault_guide.md).
+## Step 1: Enable the relay in your vault
 
-### Step 2: Setup Keep3r Requirements
+Once inside your vault, click on "Add New Relay", and then select the Gelato Relay as your relay.
 
-- In order to use gelato relay we will need to create a task. To do this we can use [Gelato Network](https://app.gelato.network//).In the creation of the task we have several parameters that we can configure according to the need of our job. However there are certain parameters that are necessary for the implementation of Gelato with xKeeper.
+Then, within the Callers section of the modal, we will need to approve the dedicated Msg Sender from Gelato. To do this, we will have to go to the [Gelato App settings](https://app.gelato.network/settings) to obtain ours.
 
-- The job needs a checker function which will have to pass the parameters for execution. Gelato has several tutorials and examples that explain this in more detail. Here is a simple example that serves as a template.
+Finally, inside the Jobs section, go ahead and add the details of your job. For this example, feel free to use a sample one we have deployed to all testnets.
 
-![checker](../../images/gelatoRelayGuide/checker.png)
+> Job Address: `0x129f5C4Adf38a1860e54DE46970653465A605364`
+>
+> Work function: `work (0x322e9f04)`
 
-- The target contract should be the Gelato Relay.
+Done! Now go ahead and confirm in order to submit the transaction.
 
-- In the task configuration we will have to select the Transaction pays for itself option (remember that the automationVault needs balance).
+<video controls width="1280">
+  <source src="../../media/how-to/gelato_relay/setup.mp4" type="video/mp4">
+  <source src="../../media/how-to/gelato_relay/setup.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
 
-### Step 3: Configure Gelato Relay
+## Step 2: Create the task in Gelato App
 
-- First, in the drop down menu select the keep3r relay. The address should appear automatically since these are the relays provided by xKeeper.
+1. Open your web browser and navigate to [Gelato Network's App](https://app.gelato.network/settings).
+   Connect your Web3 wallet by clicking on the "Connect Wallet" button located at the top right corner of the page.
 
-![addGelatoRelay](../../images/gelatoRelayGuide/addGelatoRelay.png)
+2. Once connected, find and click on the "Create Task" button or link, often found in the dashboard or the side menu.
 
-- In this case, the caller to approve will be the one provided by Gelato. In Gelato's dashboard, in settings, we will get our dedicated msg.sender.
+3. In the Gelato App's "Create Task" interface, you have several options for setting the trigger conditions for your task. Here’s a brief overview of each:
 
-![dedicatedMsgSender](../../images/gelatoRelayGuide/dedicatedMsgSender.png)
+- Time Interval: This trigger allows you to set the task to execute at regular intervals, specified in days, hours, minutes, and seconds.
 
-- After this, in the next tab we will display jobs. Here we will put the address of the desired job and it will automatically load the selectors to choose which function we want to be worked.
+- Cron Expressions: This is a more advanced scheduling option that enables you to define complex time patterns such as "every Monday at 3 PM" or "every 5 minutes during business hours on weekdays".
 
-![selectorsGelatoRelay](../../images/gelatoRelayGuide/selectorsGelatoRelay.png)
+- On-chain Event: Choose this trigger to initiate the task based on specific events on the blockchain. For instance, you could trigger a task when a transaction is confirmed or when a certain state change occurs in a contract.
 
-- Finally, after having added the caller and the desired jobs we will get something like this in our automation vault.
+- Every Block: This option will execute the task every time a new block is mined on the blockchain.
 
-![configuredGelatoRelay](../../images/gelatoRelayGuide/configuredGelatoRelay.png)
+4. In the next step of setting up your task, you'll be presented with options for what action should be triggered.
+
+5. To create your task within the Gelato App, you’ll need to fill in the following fields:
+
+- **Network:** Here you select the blockchain network where your task will operate.
+
+- **Solidity function contract address:** This field refers to the contract that contains the checker function. The checker function is what Gelato calls to determine whether your task should execute.
+
+- **Target smart contract:** Input the address of your Gelato Relay as the destination since it's tasked with executing the actions.
+
+6. Lastly, in the "Task Properties" section under "Advanced Settings," toggle on "Transaction pays itself" to ensure the transaction costs are covered and the executor is compensated for executing the task.
+
+In our walkthrough, we've set up a task to trigger every **5 minutes** using the **Solidity Function** as our action point. This configuration is demonstrated in the accompanying example video:
+
+<video controls width="1280">
+  <source src="../../media/how-to/gelato_task/setup.mp4" type="video/mp4">
+  <source src="../../media/how-to/gelato_task/setup.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+## Verify execution
+
+With all the steps completed, we now have everything necessary to harness the automation capabilities of Gelato Network and xKeeper. This seamless integration allows us to set up tasks that are automatically executed, with payments and incentives managed through the Automation Vault, ensuring a streamlined process for users and fair compensation for executors.
+
+To verify the executions of your tasks, you can conveniently check the dashboard of xKeeper as well as the Gelato App.
