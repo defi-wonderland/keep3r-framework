@@ -1,37 +1,78 @@
-## Tutorial: Automate with Open Relay
+# Enable the Keep3rRelay on your Vault
 
-This guide provide all information needed to configure an `Open Relay` for your automation vault. You can do it easily using [xkeeper.network](https://xkeeper.network/).
+> 🚧 Prerequisite: Please ensure you have completed the [Automation Vault setup](./automation_vault.md) before proceeding.
 
-### Step 1: Deployment of the Automation Vault
+Keep3r Relay harnesses the technology of Keep3r Network alongside xKeeper, creating a formidable combination that enhances job automation and liquidity management.Traditionally, Keep3r Network users are tasked with registering each job, minting Klp tokens, and individually adding liquidity to ensure Keepers are properly compensated. xKeeper, through the Keep3rRelay, offers a more efficient route.
 
-**Automation Vault**
+With xKeeper, you're able to utilize the Keep3rRelay to leverage centralized liquidity provision. This means you register your Automation Vault once, mint Klp tokens just one time, and add liquidity in a single, unified location, rather than repeating the process for each job. The synergy between Keep3r Network and xKeeper via the Keep3rRelay presents a robust solution that reduces the operational overhead for users and provides a seamless experience in managing and automating decentralized jobs.
 
-- If you already have an automation vault, you can skip this step, if not, deploy and configure the automation vault. You can follow the [automation vault guide](./automation_vault_guide.md).
+## Step 1: Enable the relay in your vault
 
-### Step 2: Setup Keep3r Requirements
+Once inside your vault, click on "Add New Relay", and then select the Keep3r Relay as your relay.
 
-- First of all we will have to register our job in keep3r network, for this we will use [keep3r.network](https://https://keep3r.network//).
+In the Callers section of the window that appears, activate the "Allow any caller" option to permit any address to execute your job. However, remember that within the Keep3r Network, only addresses recognized as Keepers are actually capable of executing the job.
 
-![registerJob](../../images/keep3rRelayGuide/registerJob.png)
+In the context of setting up your job for Keep3r Network, you have to ensure your job is properly configured to interact with the Keep3r ecosystem. After adding your job details in the Jobs section, such as the example provided for testnets, you'll also need to take additional steps to integrate fully with Keep3r requirements.
 
-- Once we have registered it, our job will appear in the list. We will select it and different metrics and options will appear. Then, we will have to mint kLP. For this we need both Keep3r and Weth. Finally, we will add liquidity to that job and it will be the payment that the bots that run through our relay will receive. We will already have everything set up in relation to Keep3r.
+> Job Address: `0x129f5C4Adf38a1860e54DE46970653465A605364`
+>
+> Work function: `work (0x322e9f04)`
+>
+> Keep3rV2: `keep3rV2 address`
+>
+> IsKeep3r function: `isKeeper (0x6ba42aaa)`
+>
+> Keep3rV2: `keep3rV2 address`
+>
+> Worked function: `worked (0x5feeb794)`
 
-![mintKlp](../../images/keep3rRelayGuide/mintKlp.png)
+Done! Now go ahead and confirm in order to submit the transaction.
 
-### Step 3: Configure Keep3r Relay
+<video controls width="1280">
+  <source src="../../media/how-to/gelato_relay/setup.mp4" type="video/mp4">
+  <source src="../../media/how-to/gelato_relay/setup.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
 
-- First, in the drop down menu select the keep3r relay. The address should appear automatically since these are the relays provided by xKeeper. Then we will have to approve the callers who will be able to execute the jobs. In this case, and being the keep3r relay, you can select the option that allows anyone to run our jobs.
+## Step 2: Setup Keep3r requirements
 
-![addKeep3rRelay](../../images/keep3rRelayGuide/addKeep3rRelay.png)
+1. Open your web browser and navigate to [Gelato Network's App](https://app.gelato.network/settings).
+   Connect your Web3 wallet by clicking on the "Connect Wallet" button located at the top right corner of the page.
 
-- Now, for keep3r to work we need to add two keep3r V2 selectors. The address will vary depending on the chain we are using.
+2. Once connected, find and click on the "Create Task" button or link, often found in the dashboard or the side menu.
 
-![keep3rFuncSelectors](../../images/keep3rRelayGuide/keep3rFuncSelectors.png)
+3. In the Gelato App's "Create Task" interface, you have several options for setting the trigger conditions for your task. Here’s a brief overview of each:
 
-- After this, in the next tab we will display jobs. Here we will put the address of the desired job and it will automatically load the selectors to choose which function we want to be worked.
+- Time Interval: This trigger allows you to set the task to execute at regular intervals, specified in days, hours, minutes, and seconds.
 
-![selectorsKeep3rRelay](../../images/keep3rRelayGuide/selectorsKeep3rRelay.png)
+- Cron Expressions: This is a more advanced scheduling option that enables you to define complex time patterns such as "every Monday at 3 PM" or "every 5 minutes during business hours on weekdays".
 
-- Finally, after having added the caller and the desired jobs we will get something like this in our automation vault.
+- On-chain Event: Choose this trigger to initiate the task based on specific events on the blockchain. For instance, you could trigger a task when a transaction is confirmed or when a certain state change occurs in a contract.
 
-![configuredKeep3rRelay](../../images/keep3rRelayGuide/configuredKeep3rRelay.png)
+- Every Block: This option will execute the task every time a new block is mined on the blockchain.
+
+4. In the next step of setting up your task, you'll be presented with options for what action should be triggered.
+
+5. To create your task within the Gelato App, you’ll need to fill in the following fields:
+
+- **Network:** Here you select the blockchain network where your task will operate.
+
+- **Solidity function contract address:** This field refers to the contract that contains the checker function. The checker function is what Gelato calls to determine whether your task should execute.
+
+- **Target smart contract:** Input the address of your Gelato Relay as the destination since it's tasked with executing the actions.
+
+6. Lastly, in the "Task Properties" section under "Advanced Settings," toggle on "Transaction pays itself" to ensure the transaction costs are covered and the executor is compensated for executing the task.
+
+In our walkthrough, we've set up a task to trigger every **5 minutes** using the **Solidity Function** as our action point. This configuration is demonstrated in the accompanying example video:
+
+<video controls width="1280">
+  <source src="../../media/how-to/gelato_task/setup.mp4" type="video/mp4">
+  <source src="../../media/how-to/gelato_task/setup.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+## Verify execution
+
+With all the steps completed, we now have everything necessary to harness the automation capabilities of Gelato Network and xKeeper. This seamless integration allows us to set up tasks that are automatically executed, with payments and incentives managed through the Automation Vault, ensuring a streamlined process for users and fair compensation for executors.
+
+To verify the executions of your tasks, you can conveniently check the dashboard of xKeeper as well as the Gelato App.

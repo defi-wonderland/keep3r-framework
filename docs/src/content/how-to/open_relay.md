@@ -11,11 +11,11 @@ The OpenRelay is a fundamental yet potent relay system. It precisely calculates 
 Inside your vault, find and click "Add New Relay," then choose Open Relay from the list.
 
 In the Callers section of the window that appears, activate the "Allow any caller" option to permit any address to execute your job.
- 
+
 Next, in the Jobs section, input the details of your job. For this guide, we will use a sample job we've made available on all testnets:
 
 > Job Address: `0x129f5C4Adf38a1860e54DE46970653465A605364`
-> 
+>
 > Work function: `work (0x322e9f04)`
 
 Now proceed by confirming in order to submit the transaction.
@@ -35,12 +35,15 @@ Jobs should always be executed through Relays. In this case, we need to generate
 Let's gather the needed information:
 
 #### `_automationVault`
+
 Your vault's address.
 
 #### `_execData`
+
 This encapsulates the encoded function signature of your job and its parameters. A typical `_execData` example is as follows:
+
 ```json
-[{"job":"<JOB_ADDRESS>","jobData":"<JOB_DATA>"}]
+[{ "job": "<JOB_ADDRESS>", "jobData": "<JOB_DATA>" }]
 ```
 
 Continue using the testnet sample job address: `0x129f5C4Adf38a1860e54DE46970653465A605364`.
@@ -55,11 +58,11 @@ Type: bytes32
 └ Data: 0x322e9f0400000000000000000000000000000000000000000000000000000000
 ```
 
-For alternative methods to generate `_execData`, refer to [Relay exec data](../intro/index.md).
+For alternative methods to generate `_execData`, refer to [Relay exec data](../intro/exec_data.md).
 
 #### `_feeRecipient`
-The ETH fee recipient, typically the wallet executing the job.
 
+The ETH fee recipient, typically the wallet executing the job.
 
 ## Step 3: Work your job for the first time
 
@@ -74,7 +77,6 @@ Then, under the Write Contracts tab, input the parameters prepared in Step 2 and
   <source src="../../media/how-to/open_relay/work.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
-
 
 ## Step 4: Verify execution
 

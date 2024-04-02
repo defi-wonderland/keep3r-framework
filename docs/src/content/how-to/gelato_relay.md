@@ -1,6 +1,6 @@
 # Enable the GelatoRelay on your Vault
 
-> 🚧 <Insert a text saying that completing the [Automation Vault setup](./automation_vault.md) is a requirement>
+> 🚧 Prerequisite: Please ensure you have completed the [Automation Vault setup](./automation_vault.md) before proceeding.
 
 The GelatoRelay combines the power of xKeeper with the Gelato Network ecosystem. The key advantage of Gelato Relay is its ability to centralize payment for executing all Gelato tasks within the Automation Vault, streamlining the process for users. This relay handles the costs associated with the execution of automated transactions, ensuring that the executors, or "Gelato Executors", are adequately compensated for their work.
 
