@@ -48,7 +48,7 @@ This encapsulates the encoded function signature of your job and its parameters.
 
 Continue using the testnet sample job address: `0x129f5C4Adf38a1860e54DE46970653465A605364`.
 
-To generate the job data, we used [chisel](https://book.getfoundry.sh/chisel/):
+To generate the job data, we will use [chisel](https://book.getfoundry.sh/chisel/):
 
 ```bash
 > chisel
