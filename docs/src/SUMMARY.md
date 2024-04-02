@@ -12,6 +12,7 @@
   - [Enable Gelato Relay](content/how-to/gelato_relay.md)
   - [Enable Keep3r Relay](content/how-to/keep3r_relay.md)
   - [Enable Open Relay](content/how-to/open_relay.md)
+  - [Generate Exec Data](content/how-to/exec_data.md)
 
 - [Core Contracts](content/core/index.md)
 
