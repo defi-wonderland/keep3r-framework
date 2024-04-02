@@ -1,61 +1,67 @@
-## Tutorial: Deployment and Configuration of Automation Vault
+# Create your first Automation Vault
 
-This guide provide all information needed to deploy and configure an `AutomationVault`. You can do it easily using [xkeeper.network](https://xkeeper.network/).
+An automation vault is the home to your onchain automation. You can deposit ETH or any ERC20 into it, and use it for automation payments.
 
-### Step 1: Deployment of the Automation Vault
+Inside your vault, you can also enable multiple automation networks (i.e. Gelato), and define which jobs can they work.
 
-**Create a new Automation Vault:**
+## Step 1: Deploy your vault
 
-- On the main page there will be a button once we connect our wallet which will allow us to create a new Automation Vault.
+Go to [xkeeper.network](https://xkeeper.network/) in your browser, connect to your favorite chain, and click on "Create Vault".
 
-![CreateVault](../../images/automationVaultGuide/CreateVault.png)
+<video controls width="1280">
+  <source src="../../media/how-to/automation_vault/vault-creation.mp4" type="video/mp4">
+  <source src="../../media/how-to/automation_vault/vault-creation.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
 
-- Once we have clicked on it, we will see several fields.
+Well done! You now have created your first Automation Vault 🥳.
 
-  The first one will be the address which will be the owner of the automation vault.
 
-  The last one is the chain in which we want to start using xkeeper.
+### Step 2: Add metadata
 
-- By default it will take the owner, the connected address and the ethereum mainnet.
+Adding a name and description to your vault will make it easier for bots to identify your job. Make sure to include everything needed for the execution of your job in the description.
 
-![CreateVaultConfirm](../../images/automationVaultGuide/CreateVaultConfirm.png)
+The better your description, the more amount of bots will be able to run it. A good job metadata could be:
 
-- When the new automation vault is created, it will appear in the "my vaults" list. If we explore the vault we will get this:
+> **Name:** My Protocol
+> 
+> **Description:** Automation of My Protocol reward and distribute jobs. Automation scripts can be found here: [https://github.com/my-protocol/automation-scripts](https://github.com/my-protocol/automation-scripts).
 
-![MyVaults](../../images/automationVaultGuide/MyVaults.png)
+<div class="warning">
+xKeeper is a fully onchain protocol. Metadata is stored onchain, thus it requires a transaction.
+</div>
 
-- We have several options related to the balance for payments, relays for executions and additional metadata information. All will be explored in separate sections.
+<video controls width="1280">
+  <source src="../../media/how-to/automation_vault/metadata.mp4" type="video/mp4">
+  <source src="../../media/how-to/automation_vault/metadata.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
 
-### Step 2: Adding Balance to the Automation Vault
+Go ahead, try it out and add some metadata to your newly created vault.
 
-**Transfer Funds to the Vault:**
 
-- Transfer the necessary funds to the automation vault to cover the costs associated with task execution. This could include Native token as ETH in Ethereum network or ERC-20 tokens, depending on the protocol requirements.
+### Step 3: Add balance
 
-![Deposit](../../images/automationVaultGuide/Deposit.png)
+Transfer the necessary funds to your vault to cover the costs associated with task execution.
 
-### Step 3: Approval of Callers and Relays for a specific relay
+For this example, let's go and add some ETH to it. Using your favorite wallet, transfer ETH to your newly created automation vault address.
 
-**Add relay:**
+<video controls width="1280">
+  <source src="../../media/how-to/automation_vault/deposit-eth.mp4" type="video/mp4">
+  <source src="../../media/how-to/automation_vault/deposit-eth.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
 
-- Use functions in the automation vault to approve specific relay. This might include relays such as `Keep3rRelay`, `Keep3rBondedRelay`, `GelatoRelay`, or `OpenRelay`, depending on the protocol's needs. These configurations will be explained in more detail in their specific section.
 
-### Step 4: Adding Metadata
+### Step 4: Setup your relays and jobs
 
-**Adding Metadata:**
+Relays are the connection between xKeeper and different automation networks. For example, inside your vault, you can enable the **GelatoRelay** to use Gelato's automation network, or **Keep3rRelay** to use Keep3r's.
 
-- Adding metadata will give additional information to the various bots that will want to run the jobs in your vault. Within this option we can add a name to the vault and the relevant information for the executions in this vault.
+There is one exception to the rule, the **OpenRelay**, which is not connected to any automation network. This relay will let **any bot** execute your onchain jobs, and get directly rewarded with ETH for it, attracting MEV Searchers and maximising your further contributing to your job's decentralization.
 
-![AddMetadata](../../images/automationVaultGuide/AddMetadata.png)
+When you enable a relay, you will also specify which jobs you allow it to execute.
 
-After set the metadata, the website will display the proper information.
-
-![DisplayMetadata](../../images/automationVaultGuide/DisplayMetadata.png)
-
-### Step 5: Tracking and Monitoring
-
-**Tracking and Monitoring:**
-
-- Monitor task executions through emitted events and other relevant metrics.
-
-With these steps, you should have a solid guide for a protocol to deploy its automation vault, configure necessary permissions and relays, add balance, and execute automated tasks.
+As the final step, go ahead and enable one of the following relays to your vault:
+* [Open Relay](./open_relay.md)
+* [Gelato Relay](./gelato_relay.md)
+* [Keep3r Relay](./keep3r_relay.md)
