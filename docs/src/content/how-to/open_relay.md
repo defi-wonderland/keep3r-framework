@@ -58,7 +58,7 @@ Type: bytes32
 └ Data: 0x322e9f0400000000000000000000000000000000000000000000000000000000
 ```
 
-For alternative methods to generate `_execData`, refer to [Relay exec data](../exec_data.md).
+For alternative methods to generate `_execData`, refer to [Relay exec data](./exec_data.md).
 
 #### `_feeRecipient`
 
