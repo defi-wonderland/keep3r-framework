@@ -1,30 +1,34 @@
 # Enable the Keep3rRelay on your Vault
 
-> 🚧 Prerequisite: Please ensure you have completed the [Automation Vault setup](./automation_vault.md) before proceeding. In this case, the selected network will be Ethereum Sepolia.
+> 🚧 Prerequisite: Please ensure you have completed the [Automation Vault setup](./automation_vault.md) before proceeding. For this relay, the selected chain must be Ethereum Sepolia.
 
-The Keep3r Relay allows you to connect the Keep3r Network to an array of automation networks within xKeeper, offering a current incentive of 120% of the gas costs. For comprehensive details regarding Keep3r Network, refer to their [documentation](https://docs.keep3r.network/).
+The Keep3r Relay allows you to connect the Keep3r Network to an array of automation networks within xKeeper. The Keep3r Network currently provides an incentive of 120% of gas costs to keepers. For in-depth information about the Keep3r Network, please consult their [documentation](https://docs.keep3r.network/).
+
+Moreover, the Keep3r Relay introduces an opportunity for job owners to leverage Keep3r Liquidity Provider Tokens (kLPs) for their tasks. These tokens, minted to liquidity providers within the network's pools, accrue KP3R credits over time, which can then be utilized for automation payments. The process is detailed further in the [Credit Mining Docs](https://docs.keep3r.network/tokenomics/job-payment-mechanisms/credit-mining).
+
 
 ## Step 1: Add the relay in your vault
 
 Inside your vault, find and click "Add New Relay," then choose Keep3r Relay from the list.
 
-In the Callers section of the window that appears, activate the "Allow any caller" option to permit any address to execute your job. Remember that only valid keep3r users who have successfully registered will be able to run Automation Vault.
+In the Callers section of the window that appears, activate the "Allow any caller" option to permit any address to execute your job. Remember that only valid keepers will be able to run your job.
 
-Next, in the Jobs section, input the details of your job. For this guide, we will use a sample job we've made available on all testnets:
+Then, in the Jobs section, provide your job's specifics. For this tutorial, we'll use a sample job available on all testnets:
 
 > Job Address: `0x129f5C4Adf38a1860e54DE46970653465A605364`
 >
-> Work function: `work (0x322e9f04)`
+> Selectors to allow:
+> * `work (0x322e9f04)`
 
-Also, you will need to approve both **isKeeper** to validate the caller and **worked** to execute the payment. This requires the address of Keep3rV2.
+Additionally, for this relay's operation, it's crucial to authorize the `isKeeper` and `worked` functions from Keep3r v2 for executing payments:
 
 > Job Address: `0xf171B63F97018ADff9Bb15F065c6B6CDA378d320 (Keep3rV2)`
 >
-> isKeeper function: `isKeeper (0x6ba42aaa)`
->
-> worked function: `worked (0x5feeb794)`
+> Selectors to allow:
+> * `isKeeper (0x6ba42aaa)`
+> * `worked (0x5feeb794)`
 
-Now proceed by confirming in order to submit the transaction.
+Continue by confirming the transaction.
 
 <video controls width="1280">
   <source src="../../media/how-to/keep3r_relay/setup.mp4" type="video/mp4">
@@ -34,7 +38,7 @@ Now proceed by confirming in order to submit the transaction.
 
 ## Step 2: Register your Automation Vault as a Keep3r Job
 
-Open your web browser and navigate to [Keep3r Network](https://keep3r.network/). Connect your wallet and click on "Register Job". The address to register is your Automation Vault.
+Open [keep3r.network](https://keep3r.network/) in your web browser, connect your wallet, and opt for "Register Job" using your Automation Vault's address.
 
 <video controls width="1280">
   <source src="../../media/how-to/keep3r_relay/register.mp4" type="video/mp4">
@@ -42,40 +46,52 @@ Open your web browser and navigate to [Keep3r Network](https://keep3r.network/).
   Your browser does not support the video tag.
 </video>
 
-## Step 3: Wrap Some ETH and mint KP3R
+## Step 3: Acquire kLPs
 
-To participate in the Keep3r network, wrap some of your ETH into WETH (Wrapped ETH). This is done through the WETH contract, available on most chains.
+Since kLPs are backed by WETH and KP3R, acquiring these underlying tokens is a prerequisite for minting kLPs.
 
-Mint KP3R tokens. Since we are on a test network, anyone can mint KP3R tokens for themselves. These will be necessary later to mint kLPs, which will generate Keep3r credits for you.
+- **To obtain WETH:** Utilize the [WETH deposit function](https://sepolia.etherscan.io/token/0xfff9976782d46cc05630d1f6ebab18b2324d6b14#writeContract#F5) to convert 0.01 ETH.
+- **To acquire KP3R:** Use the [KP3R mint function](https://sepolia.etherscan.io/token/0x80b4327021946ff962d570c808b6aac47224aef1#writeContract#F9) to mint 100,000 KP3R (`100000000000000000000000`).
+
+Afterward, navigate to your job on [keep3r.network](https://keep3r.network/) and mint kLPs with the KP3R and WETH you've acquired.
 
 <video controls width="1280">
-  <source src="../../media/how-to/keep3r_relay/mint.mp4" type="video/mp4">
-  <source src="../../media/how-to/keep3r_relay/mint.webm" type="video/webm">
+  <source src="../../media/how-to/keep3r_relay/mint-klps.mp4" type="video/mp4">
+  <source src="../../media/how-to/keep3r_relay/mint-klps.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
 
-## Step 4: Mint and add kLPs to your Keep3r Job
+## Step 4: Deposit kLPs into your vault
 
-Mint and add your kLP tokens to your registered Keep3r job. This action enables your job to start earning rewards and participate in the network's automation processes. To do this, it will be necessary to have followed the previous steps and have a balance of both WETH and KP3R.
+Access your job on [keep3r.network](https://keep3r.network/) and in the "Add liquidity" section, enter the amount of previously minted kLPs. Proceed by selecting "Add liquidity to job" and confirming the transaction.
+
+This will commence the automatic generation of KP3R credits. Please note, it may take up to an hour to accumulate sufficient credits to commence your job.
 
 <video controls width="1280">
-  <source src="../../media/how-to/keep3r_relay/mintAndAdd.mp4" type="video/mp4">
-  <source src="../../media/how-to/keep3r_relay/mintAndAdd.webm" type="video/webm">
+  <source src="../../media/how-to/keep3r_relay/add-klps.mp4" type="video/mp4">
+  <source src="../../media/how-to/keep3r_relay/add-klps.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
 
-After adding kLP liquidity, this process can take some time until the credits have been generated. Generally, in less than one day, you will have sufficient credits to continue with the process.
+## Step 5: Work your job for the first time
 
-## Step 5: Turn Into a Keeper
+While only validated keepers can execute tasks, testnet testing simplifies the keeper registration process.
 
-Convert your status to a keeper. In the Keep3r network, anyone can become a keeper; it is not necessary to bond any assets upfront. Initially, you will need to execute the bond function with the Keep3r address, and importantly, the amount can be zero. Following this, you will call the activate method to complete the process and officially become an active keeper. This sequence ensures that you are recognized within the network without the requirement to lock in any initial funds.
+Visit [keep3r.network](https://keep3r.network/), connect your wallet, and select "Bond". Confirm the transaction, without the need of adding KP3R, effectively validating your keeper status.
 
-## Step 6: Work Your Job for the First Time
+While this process is typically automated, we'll manually trigger the job via Etherscan for demonstration purposes. Visit the [OpenRelay in Etherscan](https://sepolia.etherscan.io/address/0x1bc8FC8D130666d8fC37fCA41F436fDC1F822c1E#writeContract#F1) and execute the `exec` function with the specified parameters:
 
-Initiate your first task as a keeper. This step involves a layered interaction where you, as the keeper, will call the Keep3r Relay. The Keep3r Relay, in turn, interacts with the Automation Vault, which acts as the registered job. The system will verify that you are a valid keeper. Once the work has been successfully completed, the payment to you, the keeper, will be facilitated through the worked method. This ensures that the process not only verifies keeper authenticity but also secures a smooth transaction of rewards upon job completion.
+- **`_automationVault`:** Your automation vault's address.
+- **`_execData`:** `[{ "job": "0x129f5C4Adf38a1860e54DE46970653465A605364", "jobData": 0x322e9f04 }]`
 
-## Step 7: Verify execution
+<video controls width="1280">
+  <source src="../../media/how-to/keep3r_relay/work.mp4" type="video/mp4">
+  <source src="../../media/how-to/keep3r_relay/work.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+## Step 6: Verify execution
 
 After the first work transaction is included onchain, you will be able to find its details under the Activity tab if your vault.
 
-![Vault transaction history](../../media/how-to/gelato_relay/history.png)
+![Vault transaction history](../../media/how-to/keep3r_relay/history.png)

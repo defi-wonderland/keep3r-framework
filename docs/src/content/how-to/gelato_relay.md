@@ -17,7 +17,8 @@ Next, in the Jobs section, input the details of your job. For this guide, we wil
 
 > Job Address: `0x129f5C4Adf38a1860e54DE46970653465A605364`
 >
-> Work function: `work (0x322e9f04)`
+> Selectors to allow:
+> * `work (0x322e9f04)`
 
 Now proceed by confirming in order to submit the transaction.
 
