@@ -6,7 +6,6 @@ The Keep3r Relay allows you to connect the Keep3r Network to an array of automat
 
 Moreover, the Keep3r Relay introduces an opportunity for job owners to leverage Keep3r Liquidity Provider Tokens (kLPs) for their tasks. These tokens, minted to liquidity providers within the network's pools, accrue KP3R credits over time, which can then be utilized for automation payments. The process is detailed further in the [Credit Mining Docs](https://docs.keep3r.network/tokenomics/job-payment-mechanisms/credit-mining).
 
-
 ## Step 1: Add the relay in your vault
 
 Inside your vault, find and click "Add New Relay," then choose Keep3r Relay from the list.
@@ -18,15 +17,17 @@ Then, in the Jobs section, provide your job's specifics. For this tutorial, we'l
 > Job Address: `0x129f5C4Adf38a1860e54DE46970653465A605364`
 >
 > Selectors to allow:
-> * `work (0x322e9f04)`
+>
+> - `work (0x322e9f04)`
 
 Additionally, for this relay's operation, it's crucial to authorize the `isKeeper` and `worked` functions from Keep3r v2 for executing payments:
 
 > Job Address: `0xf171B63F97018ADff9Bb15F065c6B6CDA378d320 (Keep3rV2)`
 >
 > Selectors to allow:
-> * `isKeeper (0x6ba42aaa)`
-> * `worked (0x5feeb794)`
+>
+> - `isKeeper (0x6ba42aaa)`
+> - `worked (0x5feeb794)`
 
 Continue by confirming the transaction.
 
@@ -38,7 +39,7 @@ Continue by confirming the transaction.
 
 ## Step 2: Register your Automation Vault as a Keep3r Job
 
-Open [keep3r.network](https://keep3r.network/) in your web browser, connect your wallet, and opt for "Register Job" using your Automation Vault's address.
+Open [keep3r.network](https://keep3r.network/) in your web browser, connect your wallet, and click on "Register Job" using your Automation Vault's address.
 
 <video controls width="1280">
   <source src="../../media/how-to/keep3r_relay/register.mp4" type="video/mp4">
@@ -79,10 +80,34 @@ While only validated keepers can execute tasks, testnet testing simplifies the k
 
 Visit [keep3r.network](https://keep3r.network/), connect your wallet, and select "Bond". Confirm the transaction, without the need of adding KP3R, effectively validating your keeper status.
 
-While this process is typically automated, we'll manually trigger the job via Etherscan for demonstration purposes. Visit the [OpenRelay in Etherscan](https://sepolia.etherscan.io/address/0x1bc8FC8D130666d8fC37fCA41F436fDC1F822c1E#writeContract#F1) and execute the `exec` function with the specified parameters:
+While this process is typically automated, we'll manually trigger the job via Etherscan for demonstration purposes. Visit the [Keep3rRelay in Etherscan](https://sepolia.etherscan.io/address/0x1bc8FC8D130666d8fC37fCA41F436fDC1F822c1E#writeContract#F1) and execute the `exec` function with the specified parameters.
 
-- **`_automationVault`:** Your automation vault's address.
-- **`_execData`:** `[{ "job": "0x129f5C4Adf38a1860e54DE46970653465A605364", "jobData": 0x322e9f04 }]`
+Let's gather the needed information:
+
+#### `_automationVault`
+
+Your vault's address.
+
+#### `_execData`
+
+This encapsulates the encoded function signature of your job and its parameters. A typical `_execData` example is as follows:
+
+````json
+[{ "job": "<JOB_ADDRESS>", "jobData": "<JOB_DATA>" }]
+
+Continue using the testnet sample job address: `0x129f5C4Adf38a1860e54DE46970653465A605364`.
+
+To generate the job data, we will use [chisel](https://book.getfoundry.sh/chisel/):
+
+```bash
+> chisel
+> bytes32(abi.encodeWithSignature("work()"))
+
+Type: bytes32
+└ Data: 0x322e9f0400000000000000000000000000000000000000000000000000000000
+````
+
+For alternative methods to generate `_execData`, refer to [Relay exec data](./exec_data.md).
 
 <video controls width="1280">
   <source src="../../media/how-to/keep3r_relay/work.mp4" type="video/mp4">
