@@ -38,7 +38,6 @@ xKeeper is a fully modular framework, designed to be the backbone of future onch
 | Keep3rBondedRelay      | `0x10Ddf0A7051e238311A1b858acA26C4115f1c3EF` |
 | XKeeperMetadata        | `0x96f57C654f07dda2B7d65dD98150158Bd5d764db` |
 
-
 **Ethereum Sepolia**
 
 | Contract Name          | Contract Address                             |
@@ -46,7 +45,7 @@ xKeeper is a fully modular framework, designed to be the backbone of future onch
 | AutomationVaultFactory | `0xa9C4c7295519C8aE3A69D6d84252de6948666bd4` |
 | GelatoRelay            | `0xe012118BA9678ceB3B7104C9bD7cc6b8Cf0a90DC` |
 | OpenRelay              | `0xc461d22DCDd8538E8025AAfA439B5BddA8C69B15` |
-| Keep3rRelay            | `0xB0CB8E6Fe8F655d46eE0910332C263ddB61FF9a0` |
+| Keep3rRelay            | `0x1bc8FC8D130666d8fC37fCA41F436fDC1F822c1E` |
 | Keep3rBondedRelay      | `0xaDe1cE131609702FdDb68f6142fc1c74f80F4c5f` |
 | XKeeperMetadata        | `0x96f57C654f07dda2B7d65dD98150158Bd5d764db` |
 

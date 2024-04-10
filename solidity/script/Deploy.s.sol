@@ -95,7 +95,7 @@ contract DeployEthereumSepolia is Deploy {
 
     // Chain specific setup
     gelatoAutomate = IAutomate(0x2A6C106ae13B558BB9E2Ec64Bd2f1f7BEFF3A5E0);
-    keep3rV2 = IKeep3rV2(0x12C471f8db6763e83cb20C5A41a91506f744b346);
+    keep3rV2 = IKeep3rV2(0xf171B63F97018ADff9Bb15F065c6B6CDA378d320);
     vm.createSelectFork(vm.envString('ETHEREUM_SEPOLIA_RPC'));
   }
 }
