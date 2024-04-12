@@ -7,7 +7,8 @@ import {BasicJob} from '../../contracts/for-test/BasicJob.sol';
 import {Deploy} from '../../script/Deploy.s.sol';
 import {IAutomate} from '../../interfaces/external/IAutomate.sol';
 import {IKeep3rV2} from '../../interfaces/external/IKeep3rV2.sol';
-import {_KEEP3R_V2, _AUTOMATE} from './Constants.sol';
+import {Keep3rSponsor} from '../../contracts/periphery/Keep3rSponsor.sol';
+import {_KEEP3R_V2, _AUTOMATE, _KEEP3R_HELPER, _KEEP3R_GOVERNOR} from './Constants.sol';
 
 contract DeployForTest is Deploy {
   uint256 private constant _FORK_BLOCK = 18_500_000;
@@ -45,5 +46,7 @@ abstract contract CommonIntegrationTest is DeployForTest, Test {
     basicJob = new BasicJob();
 
     run();
+
+    keep3rSponsor = new Keep3rSponsor(owner, _KEEP3R_GOVERNOR, openRelay, _KEEP3R_V2, _KEEP3R_HELPER);
   }
 }
